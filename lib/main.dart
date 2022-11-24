@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MaterialApp(
-    home: Scaffold(
+void main() => runApp(const MaterialApp(
+    home: Home()
+));
+
+class Home extends StatelessWidget {
+  const Home({Key? key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
       appBar: AppBar(
         title: const Text('Meal Planning App'),
         centerTitle: true,
@@ -9,28 +16,20 @@ void main() => runApp(MaterialApp(
       ),
       body: const Center(
         child: Text(
-            "Let's plan some meals",
+          "Let's plan some meals",
           style: TextStyle(
-            fontSize: 28.0,
-            fontWeight: FontWeight.bold,
-            color: Colors.blue
+              fontSize: 28.0,
+              fontWeight: FontWeight.bold,
+              color: Colors.black
           ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {  },
-        child: const Text('+'),
         backgroundColor: Colors.green[300],
+        child: const Text('Fuck'),
       ),
-    ),
-    ));
-
-class MyApplication extends StatelessWidget {
-  const MyApplication({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
+    );
   }
 }
 
