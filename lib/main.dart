@@ -14,15 +14,48 @@ class Home extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.green[300],
       ),
-      body: const Center(
-        child: Text(
-          "Let's plan some meals",
-          style: TextStyle(
-              fontSize: 28.0,
-              fontWeight: FontWeight.bold,
-              color: Colors.black
+      body: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [ElevatedButton.icon(
+              onPressed: () {},
+              icon: const Icon(Icons.emoji_food_beverage_rounded),
+              label: const Text('Menu'),
+            ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ElevatedButton.icon(
+                  onPressed: (){},
+                  icon: const Icon(Icons.email),
+                  label: const Text('E-mail'),
+                ),
+              ),
+              ElevatedButton.icon(
+                onPressed: (){},
+                icon: const Icon(Icons.add),
+                label: const Text('Add Document'),
+              ),],
           ),
-        ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [ElevatedButton.icon(
+              onPressed: () {},
+              icon: const Icon(Icons.emoji_food_beverage_rounded),
+              label: const Text('Menu'),
+            ),
+              ElevatedButton.icon(
+                onPressed: (){},
+                icon: const Icon(Icons.email),
+                label: const Text('E-mail'),
+              ),
+              ElevatedButton.icon(
+                onPressed: (){},
+                icon: const Icon(Icons.add),
+                label: const Text('Add Document'),
+              ),],
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {  },
