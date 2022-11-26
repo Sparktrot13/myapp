@@ -4,8 +4,17 @@ void main() => runApp(const MaterialApp(
     home: Home()
 ));
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+
+  int servings = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,50 +22,55 @@ class Home extends StatelessWidget {
         title: const Text('Meal Planning App'),
         centerTitle: true,
         backgroundColor: Colors.green[300],
-      ),
-      body: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [ElevatedButton.icon(
-              onPressed: () {},
-              icon: const Icon(Icons.emoji_food_beverage_rounded),
-              label: const Text('Menu'),
-            ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ElevatedButton.icon(
-                  onPressed: (){},
-                  icon: const Icon(Icons.email),
-                  label: const Text('E-mail'),
+        leading: GestureDetector(
+          onTap: (){},
+          child: const Icon(Icons.menu),
+        ),
+        actions: [ PopupMenuButton(
+          // add icon, by default "3 dot" icon
+          // icon: Icon(Icons.book)
+            itemBuilder: (context){
+              return [
+                const PopupMenuItem<int>(
+                  value: 0,
+                  child: Text("My Account"),
                 ),
-              ),
-              ElevatedButton.icon(
-                onPressed: (){},
-                icon: const Icon(Icons.add),
-                label: const Text('Add Document'),
-              ),],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [ElevatedButton.icon(
-              onPressed: () {},
-              icon: const Icon(Icons.emoji_food_beverage_rounded),
-              label: const Text('Menu'),
-            ),
-              ElevatedButton.icon(
-                onPressed: (){},
-                icon: const Icon(Icons.email),
-                label: const Text('E-mail'),
-              ),
-              ElevatedButton.icon(
-                onPressed: (){},
-                icon: const Icon(Icons.add),
-                label: const Text('Add Document'),
-              ),],
-          ),
+
+                const PopupMenuItem<int>(
+                  value: 1,
+                  child: Text("Settings"),
+                ),
+
+                const PopupMenuItem<int>(
+                  value: 2,
+                  child: Text("Logout"),
+                ),
+              ];
+            },
+            onSelected:(value){
+              if(value == 0){
+                print("My account menu is selected.");
+              }else if(value == 1){
+                print("Settings menu is selected.");
+              }else if(value == 2){
+                print("Logout menu is selected.");
+              }
+            }
+        ),
         ],
       ),
+      body: Center(
+        child: ElevatedButton.icon(
+          onPressed: () {  },
+          style:  ElevatedButton.styleFrom(
+            backgroundColor: Colors.green[300]
+          ),
+          icon: const Icon(Icons.menu),
+          label: const Text('Menu'),
+
+        ),
+      ),
+
       floatingActionButton: FloatingActionButton(
         onPressed: () {  },
         backgroundColor: Colors.green[300],
@@ -65,4 +79,5 @@ class Home extends StatelessWidget {
     );
   }
 }
+
 
